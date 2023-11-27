@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Shirley</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #chat-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        #input-box {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="chat-box"></div>
+
+    <div id="input-box">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userMessage = document.getElementById("user-input").value;
+            displayMessage("You: " + userMessage);
+
+            // Here you can add logic to send the user's message to the server and receive the AI's response
+            // For simplicity, we'll just display a placeholder AI response for now
+            var aiResponse = "Shirley:";
+            displayMessage(aiResponse);
+
+            // Clear the input box
+            document.getElementById("user-input").value = "";
+        }
+
+        function displayMessage(message) {
+            var chatBox = document.getElementById("chat-box");
+            var newMessage = document.createElement("p");
+            newMessage.textContent = message;
+            chatBox.appendChild(newMessage);
+
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+
+</body>
+</html>
